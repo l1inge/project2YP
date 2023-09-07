@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение таблеток</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        label {
+            font-size: 18px;
+            color: #fff;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #008CBA;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005C82;
+        }
+    </style>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/pills/{id}(id=${pill.getId()})}" th:object="${pill}">
+    <label for="name">Название</label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="structure">Состав</label>
+    <input type="text" th:field="*{structure}" id="structure">
+    <label for="minage">Возрастное ограничение</label>
+    <input type="text" th:field="*{minage}" id="minage">
+    <input type="submit" value="Изменить">
+</form>
+</body>
+</html>

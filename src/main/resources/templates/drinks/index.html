@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Алкоголь</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 15px 0;
+            display: inline-block;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #fff;
+            color: #222;
+        }
+
+        div {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<a href="/home">На главную</a>
+<div th:each="drink: ${drinks}">
+    <a th:href="@{/drinks/{id}(id=${drink.getId()})}" th:text="${drink.getName()}"></a>
+    <a th:href="@{/drinks/{id}(id=${drink.getId()})}" th:text="${drink.getCost()}"></a>
+    <a th:href="@{/drinks/{id}(id=${drink.getId()})}" th:text="${drink.getPercent()}"></a>
+</div>
+<a href="/drinks/new">Добавить напиток</a>
+</body>
+</html>

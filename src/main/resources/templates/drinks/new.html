@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление напитка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 50%;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #008CBA;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005684;
+        }
+    </style>
+</head>
+<body>
+<form th:method="POST" th:action="@{/drinks}" th:object="${drink}">
+    <label for="name">Название</label>
+    <input type="text" id="name" th:field="*{name}">
+    <label for="cost">Стоимость</label>
+    <input type="text" id="cost" th:field="*{cost}">
+    <label for="percent">Процент</label>
+    <input type="text" id="percent" th:field="*{percent}">
+
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>
